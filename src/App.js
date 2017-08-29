@@ -14,8 +14,10 @@ class App extends Component {
         }
     }
 
+    
     componentDidMount () {
-        fetch('https://restcountries.eu/rest/v2/all')
+        const apiUrl = 'https://restcountries.eu/rest/v2/all';
+        fetch(apiUrl)
         .then(response => {
           return response.json()
         })
