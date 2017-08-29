@@ -5,4 +5,4 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## React-App-CountriesInfo
 
-Created simple React app using `https://restcountries-v1.p.mashape.com/all` api to display countries information.
+Created simple React app using `https://restcountries.eu/rest/v2/all` api to display countries information.

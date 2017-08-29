@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount () {
-        fetch('https://restcountries-v1.p.mashape.com/all')
+        fetch('https://restcountries.eu/rest/v2/all')
         .then(response => {
           return response.json()
         })
