@@ -38,6 +38,19 @@
   font-size: 16px;
 }
 
+.ListCustom {
+  padding: 6px 0;
+}
+
+.ListItemCustom {
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: #31708f;
+  color: #fff;
+  margin:2px 5px;
+  display:inline-block;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

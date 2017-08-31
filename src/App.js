@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import Header from './components/Header';
+import SearchControl from './components/SearchControl';
 import Info from './components/Info';
+import RegionList from './components/RegionList';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
         super(props);
-
-        this.filterName = this.filterName.bind(this);
+        
+        //this.filterName = this.filterName.bind(this);
+       // this.onClick = this.myClick.bind(this);
 
         this.state = {
-            title: "React App - Countries Info",
+            title: "", //React App - Countries Info
             subtitle:"Collection of informations are here for all the countires.",
-            info:[]
+            info:[],
+            regions:[],
+            asianCountries:[],
+            africaCountries:[],
+            europeCountries:[],
+            americasCountries:[],
+            oceaniaCountries:[],
         }
     }
 
-    filterName(event) {
-
+   /* filterName(event) {
+      console.log("test")
       var updatedList = this.state.info;
 
       updatedList = updatedList.filter(function(item){ 
@@ -27,7 +36,9 @@ class App extends Component {
       });
 
       this.setState({info: updatedList});
-    }
+    }*/
+
+    
     
     componentDidMount () {
         const apiUrl = 'https://restcountries.eu/rest/v2/all';
@@ -39,23 +50,36 @@ class App extends Component {
           this.setState({
               info: data
           });
-          //console.log(data);
+
         });
 
         
     }
 
   render() {
+
+
+
+    this.state.info.map(country => { 
+      if(this.state.regions.indexOf(country.region) === -1 && country.region !== "") {
+           this.state.regions.push(country.region);
+      }
+      return this.state.regions;
+    });
+    // this.state.info.filter(function(object) { debugger
+    //   if(object.region === 'Asia') {
+    //     this.state.asianCountries.push(object)
+    //   }
+    //   return this.state.asianCountries;
+    // })
+
     return (
       <div className="App">
         <Header title={this.state.title} secondtitle={this.state.subtitle}/>
         <div className="container-fluid">
-              <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12">
-                  <input type="text" placeholder="Search here" value={this.state.search}  className="form-control" onChange={this.filterName}/>
-                </div>
-              </div>
-              <Info info={this.state.info} />
+          <RegionList regions={this.state.regions} />
+          <SearchControl />
+          <Info info={this.state.info} />
         </div>
       </div>
     );
