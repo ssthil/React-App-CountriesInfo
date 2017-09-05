@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 
 class RegionList extends Component {
 
-    myClick(event){
-        console.log(event.target.innerHTML);
 
-    }
+   /* handleRegionList(e) {
+        console.log(e.target.innerHTML);
+        e.preventDefault();
 
+        this.state.info.filter(function(object) { 
+           if(object.region === e.target.innerHTML) {
+             this.state.info.push(object)
+           }
+           
+         })
+    }*/
     render() {
-
-        const regionName = this.props.regions.map((region) => { 
-            return <li className="ListItemCustom" key={region} onClick={this.myClick}>{region}</li> 
+        console.log(this.props.info);
+        console.log(this.props.regions);
+        let regionName = this.props.regions.map((region) => { 
+            return <li className="ListItemCustom" key={region} onClick={this.props.onClick}>{region}</li> 
         })
 
         return(
