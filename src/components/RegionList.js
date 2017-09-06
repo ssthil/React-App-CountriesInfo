@@ -22,9 +22,17 @@ class RegionList extends Component {
         })
 
         return(
-            <ul className="ListCustom">
-                {regionName} 
-            </ul>
+             <form className="form-horizontal">
+                <div className="form-group">
+                  <label className="control-label col-sm-3">Filter by </label>
+                  <div className="col-sm-8">
+                    <ul className="ListCustom pull-left">
+                        <li className="ListItemCustom" onClick={this.props.onClick}>All</li>
+                        {regionName} 
+                    </ul>
+                  </div>
+                </div> 
+            </form>
         )
     }
 }

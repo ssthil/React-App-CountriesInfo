@@ -12,7 +12,7 @@ class App extends Component {
         super(props);
         
         this.state = {
-            title: "", //React App - Countries Info
+            title: "React App - Countries Info", //
             subtitle:"Collection of informations are here for all the countires.",
             info:[],
             regions:[],
@@ -55,9 +55,16 @@ class App extends Component {
         });   
     }
 
+
     handleRegionList(e) {
+
       console.log(e.target.innerHTML);
-     let newArray =[];
+      if(document.querySelector('.ListItemCustomClicked')){
+        document.querySelector('.ListItemCustomClicked').classList.remove('ListItemCustomClicked');
+      }
+      
+      e.target.className = 'ListItemCustom ListItemCustomClicked' ;
+      let newArray =[];
       e.preventDefault();
       let countryInfo = this.state.info.filter(
         (object) => { 
@@ -67,7 +74,12 @@ class App extends Component {
           this.setState({
             info: newArray
           });
-         } 
+         }
+        
+        
+        if(e.target.innerHTML === 'All') {
+           console.log(this.props.info)
+        }
 
        });
        
@@ -97,11 +109,15 @@ class App extends Component {
         <div className="container-fluid">
           <RegionList regions={this.state.regions} onClick={this.handleRegionList}/>
           
-          <div className="row">
-                <div className="col-lg-12 col-md-12 col-sm-12">
+         
+            <form className="form-horizontal">
+                <div className="form-group">
+                  <label className="control-label col-sm-3">Search </label>
+                  <div className="col-sm-8">
                     <input type="text" placeholder="Search here"  className="form-control" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
-                </div>
-            </div>
+                  </div>
+                </div> 
+            </form>
           <ul>
             {
               countryInfo.map((country) => {

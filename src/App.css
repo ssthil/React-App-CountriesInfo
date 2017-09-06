@@ -49,6 +49,17 @@
   color: #fff;
   margin:2px 5px;
   display:inline-block;
+  cursor: pointer;
+}
+
+.ListItemCustomClicked {
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: #0aca00;
+  color: #fff;
+  margin:2px 5px;
+  display:inline-block;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
