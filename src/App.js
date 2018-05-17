@@ -118,14 +118,14 @@ class App extends Component {
                   </div>
                 </div> 
             </form>
-          <ul>
+          <div className="row">
             {
               countryInfo.map((country) => {
                   return <CountryInfo key={country.alpha2Code} country={country} />
               })
             }
-          </ul>
-          {/* <Info info={this.state.info}/> */}
+          </div>
+          {/* <Info info={this.state.info}/>  */}
         </div>
       </div>
     );
